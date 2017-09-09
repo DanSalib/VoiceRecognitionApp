@@ -7,18 +7,18 @@
 //
 
 import UIKit
+import Speech
+import AVFoundation
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
+    @IBOutlet weak var transcriptionTextView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        activitySpinner.accessibilityElementsHidden = true
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
 
 }

@@ -30,16 +30,25 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.67656715409998025" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nPO-83-neI">
-                                <rect key="frame" x="246" y="518" width="108" height="42"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nPO-83-neI" customClass="CircleButton" customModule="VoiceRecognitionApp" customModuleProvider="target">
+                                <rect key="frame" x="270" y="490" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.67656715410000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="5yl-dY-qDg"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="60" id="D8r-7e-xfj"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="60" id="Fd1-e2-gYd"/>
                                     <constraint firstAttribute="height" constant="42" id="JJW-hM-ham"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="QyR-uj-eCb"/>
                                     <constraint firstAttribute="width" constant="108" id="sbn-vT-u2I"/>
                                 </constraints>
-                                <state key="normal" title="START">
+                                <state key="normal">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Tap Button to Transcribe Audio" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eBe-by-MGJ">
                                 <rect key="frame" x="20" y="63" width="560" height="419"/>
@@ -48,16 +57,32 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="t2C-4B-FEt">
+                                <rect key="frame" x="282" y="501" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="3Uk-cL-4yH"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="IeP-YF-HMH"/>
+                                    <constraint firstAttribute="width" constant="60" id="VSl-MH-TnB"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="bA3-6n-UYo"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="eBe-by-MGJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="3V0-Ro-5Vt"/>
+                            <constraint firstItem="t2C-4B-FEt" firstAttribute="centerY" secondItem="nPO-83-neI" secondAttribute="centerY" id="4Zd-zI-dCX"/>
+                            <constraint firstItem="t2C-4B-FEt" firstAttribute="centerX" secondItem="nPO-83-neI" secondAttribute="centerX" id="DLI-B9-tch"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nPO-83-neI" secondAttribute="bottom" constant="40" id="DeQ-PC-DYn"/>
                             <constraint firstItem="nPO-83-neI" firstAttribute="top" secondItem="eBe-by-MGJ" secondAttribute="bottom" constant="36" id="KrQ-qT-j3p"/>
                             <constraint firstItem="eBe-by-MGJ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Mty-bg-GxH"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nPO-83-neI" secondAttribute="bottom" constant="50" id="Wrt-UD-TXf"/>
                             <constraint firstItem="eBe-by-MGJ" firstAttribute="top" secondItem="6NO-Do-LuW" secondAttribute="bottom" constant="8" id="jiJ-Ma-ZPE"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="activitySpinner" destination="t2C-4B-FEt" id="KAA-Sz-Ri1"/>
+                        <outlet property="transcriptionTextView" destination="eBe-by-MGJ" id="1nS-nX-blb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
