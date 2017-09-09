@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6595DFC51F63D510008B4ADE /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6595DFC41F63D510008B4ADE /* CircleButton.swift */; };
 		65A2FF531F5E362200E50C22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A2FF521F5E362200E50C22 /* AppDelegate.swift */; };
 		65A2FF551F5E362200E50C22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A2FF541F5E362200E50C22 /* ViewController.swift */; };
 		65A2FF581F5E362200E50C22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65A2FF561F5E362200E50C22 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6595DFC41F63D510008B4ADE /* CircleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		65A2FF4F1F5E362200E50C22 /* VoiceRecognitionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceRecognitionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65A2FF521F5E362200E50C22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65A2FF541F5E362200E50C22 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +37,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6595DFC11F63D4E7008B4ADE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		6595DFC21F63D4F8008B4ADE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6595DFC41F63D510008B4ADE /* CircleButton.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		6595DFC31F63D4FC008B4ADE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		65A2FF461F5E362200E50C22 = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +78,9 @@
 		65A2FF511F5E362200E50C22 /* VoiceRecognitionApp */ = {
 			isa = PBXGroup;
 			children = (
+				6595DFC31F63D4FC008B4ADE /* Controller */,
+				6595DFC21F63D4F8008B4ADE /* View */,
+				6595DFC11F63D4E7008B4ADE /* Model */,
 				65A2FF521F5E362200E50C22 /* AppDelegate.swift */,
 				65A2FF541F5E362200E50C22 /* ViewController.swift */,
 				65A2FF561F5E362200E50C22 /* Main.storyboard */,
@@ -135,6 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6595DFC51F63D510008B4ADE /* CircleButton.swift in Sources */,
 				65A2FF551F5E362200E50C22 /* ViewController.swift in Sources */,
 				65A2FF531F5E362200E50C22 /* AppDelegate.swift in Sources */,
 			);
@@ -286,6 +314,7 @@
 				65A2FF631F5E362200E50C22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
