@@ -10,7 +10,7 @@ import UIKit
 import Speech
 import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, AVAudioPlayerDelegate {
 
     @IBOutlet weak var activitySpinner: UIActivityIndicatorView!
     @IBOutlet weak var transcriptionTextView: UITextView!
@@ -21,35 +21,46 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         activitySpinner.accessibilityElementsHidden = true
     }
+    
+    func audioPlayerDidFinishPlaying( _ player: AVAudioPlayer, successfully flag: Bool){
+        player.stop()
+        activitySpinner.stopAnimating()
+        activitySpinner.isHidden = true
+    }
 
     func requestSpeechAuth() {
-        SFSpeechRecognizer.RequestAuthorization { authStatus in
-            if authStatus == SFSpeechRecognizerAuthorizationStatus.authorized{
-                if let path = bundle.main.urlForResource("test", withExtnsion: "m4a"){
-                    do{
-                        let sound = try AVAudioPlayer(contentOf: path)
-                        self.audioPlayer = sound
-                        sound.play()
+        if #available(iOS 10.1.1, *) {
+            SFSpeechRecognizer.requestAuthorization { authStatus in
+                if authStatus == SFSpeechRecognizerAuthorizationStatus.authorized{
+                    if let path = Bundle.main.url(forResource: "test", withExtension: "m4a") {
+                        do{
+                            let sound = try AVAudioPlayer(contentsOf: path)
+                            self.audioPlayer = sound
+                            self.audioPlayer.delegate = self
+                            sound.play()
+                            
+                        } catch{
+                            print("Error")
+                        }
                         
-                    } catch{
-                        print("Error")
-                    }
-                    
-                    let recognizer = SFSpeechRecognizer();
-                    let request = SFSpeechRecognitionRequest(url: path)
-                    recognizer?.recognitionTask(with: request) { (result, error) in
-                        if let error = error {
-                            print("there was an error: \(error)")
-                        } else {
-                            print(result.bestTranscription.fomrattedString)
+                        let recognizer = SFSpeechRecognizer()
+                        let request = SFSpeechURLRecognitionRequest(url: path)
+                        recognizer?.recognitionTask(with: request) { (result, error) in
+                            if let error = error {
+                                print("there was an error: \(error)")
+                            } else {
+                                self.transcriptionTextView.text = result?.bestTranscription.formattedString
+                            }
                         }
                     }
                 }
             }
+        } else {
+            // Fallback on earlier versions
         }
     }
 
-    @IBAction func playBtnPressed(sender: AnyObject) {
+    @IBAction func playBtnPressed(_ sender: AnyObject) {
         activitySpinner.accessibilityElementsHidden = false
         activitySpinner.startAnimating()
         requestSpeechAuth()
