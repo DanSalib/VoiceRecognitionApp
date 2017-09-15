@@ -2,11 +2,11 @@
 
 Press the button to begin audio transcription
 
-![img_6226](https://user-images.githubusercontent.com/24818991/30470332-4a6c9212-99c2-11e7-9ea1-c924a75266ae.PNG)
+![beb1cca2c1b5fcaef0478854475a16cc](https://user-images.githubusercontent.com/24818991/30470651-8a7c3122-99c3-11e7-9e7a-23ce23a3ebe0.png)
 
 The app displays an audio transcription in realtime during playback
 
-![img_6227](https://user-images.githubusercontent.com/24818991/30470386-88370a1e-99c2-11e7-9d9d-546192106968.PNG)
+![8cf4b227141350d7bf5fed9ee7e66329](https://user-images.githubusercontent.com/24818991/30470652-8bb64884-99c3-11e7-8a3f-9ff41ded648f.png)
 
 For now the app only accepts pre-recorded audio. Will add the ability to record audio in-app in the near future.
 
